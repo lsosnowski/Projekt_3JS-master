@@ -30,11 +30,36 @@ const noteCreator = () => {
     const contentField = document.getElementById("NoteContent");
     const addBtn = document.getElementById("AddNoteBtn");
     const notesWrapper = document.getElementById("Notes");
+    const categoryField = document.getElementById("NoteCategory");
 
     const addNote = () => {
+        // <i class="bi bi-house-fill"></i>
+        // <i class="bi bi-person-workspace"></i>
+        // <i class="bi bi-globe2"></i>
+
+        let iconClass = null;
+        switch(categoryField.value) {
+            case 'Podróże':
+                iconClass = "bi bi-globe2";
+                break;
+            case 'Praca':
+                iconClass = "bi bi-person-workspace";
+                break;
+            case 'Dom':
+                iconClass = "bi bi-house-fill";
+                break;
+            default:
+                iconClass= null;
+                break;
+        }
+
+
+
         const note = document.createElement("div");
+        note.classList.add("card");
         note.innerHTML = 
         `
+        <span> <i class="${iconClass}"></i> ${categoryField.value}</span>
         <h3>${titleField.value}</h3>
         <p>${contentField.value}</p>
 
