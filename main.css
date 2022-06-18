@@ -1,0 +1,150 @@
+*::after
+*::before
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-family: Gentium Plus, sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.pageHeader{
+    display: flex;
+    padding: 10px 25px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 5px 15px 1px rgb(238, 160, 160);
+}
+
+.pageNav{
+    display: flex;
+    gap: 25px;
+}
+
+.pageNav > li > a{
+    font-size: 1.6rem;
+    color: rgb(50, 50, 50);
+}
+
+.logo{
+    font-size: 4.2rem;
+    color: rgb(66, 66, 157);
+}
+
+.hamburger{
+    font-size: 4.2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.closeMenu{
+    font-size: 3rem;
+    display: none;
+    cursor: pointer;
+}
+
+
+/* .noteWrapper{
+    border: 2px solid red;
+} */
+
+
+.noteFormBtn{
+    position: fixed;
+    top: 35%;
+    right: 0;
+    background-color: rgb(252, 25, 97);
+    color: white;
+    font-size: 24px;
+    padding: 5px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -2px 5px 12px 1px rgb(219, 219, 219);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.noteFormBtn.hover {
+    background-color: rgb(203, 7, 69);
+
+}
+
+.noteForm {
+    position: fixed;
+    border: 2px solid black;
+    right: 0;
+    top: 45%;
+    transform: translateX(400px);
+    padding: 12px;
+    text-align: center;
+    
+
+
+
+}
+
+.noteForm > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+
+}
+
+.noteForm input,
+.noteForm textarea {
+    border: none;
+    background-color: rgb(202, 196, 196);
+    padding: 6px 7px;
+    box-shadow: 0px 4px 8px 1px rgb(207, 207, 207)
+
+}
+
+
+
+@media (max-width:768px){
+
+    .closeMenu{
+        display: none;
+    }
+    .pageNav{
+        position: fixed;
+        top: 0%;
+        left: 0;
+        flex-direction: column;
+        background-color: #fff;
+        width: 275px;
+        box-shadow: 0px 5px 15px 1px rgb(238, 160, 160);
+        min-height: 100vh;
+        padding: 25px;
+        transform: translateX(-400px);
+        transition: 0.4s;
+    }
+  
+    .hamburger{
+        display: block;
+
+    }
+}
+
+
+.menuOn,
+.formOn
+{
+    transform: translateX(0);
+}

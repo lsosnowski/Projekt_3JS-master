@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+
+    <header class="pageHeader">
+        <i class="bi bi-apple logo"></i>
+        
+
+        <nav>
+            
+            <ul class="pageNav" id="Menu">
+                <i class="bi bi-file-earmark-excel" id="CloseMenuBtn"></i>
+                <li>
+                    <a href="">Homepage</a>
+                </li>
+                <li>
+                    <a href="">About</a>
+                </li>
+                <li>
+                    <a href="">Projects</a>
+                </li>
+                <li>
+                    <a href="">Shop</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <i class="bi bi-three-dots hamburger" id="ShowMenuBtn"></i>
+
+
+
+    </header>
+
+
+    <aside id="Form" class="noteForm">
+        <h2>Nowa notatka</h2>
+        <div>
+            <input type="text" placeholder="Nazwa notatki" id="NoteTitle">
+            <textarea id="NoteContent" cols="30" rows="10" placeholder="Treść notatki"></textarea>
+            <button id="AddNoteBtn">Dodaj</button>
+        </div>
+
+    </aside>
+
+    <div id="ShowForm" class="noteFormBtn">
+        <i class="bi bi-sticky"></i>
+    </div>
+
+
+    <main class="noteWrapper" id="Notes"></main>
+
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
