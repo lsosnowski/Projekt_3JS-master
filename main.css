@@ -197,12 +197,17 @@ a{
     background-image: url(./background.jpg);
     background-size:cover;
     transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    
 }
 
 .closeModal{
     position: absolute;
     cursor: pointer;
-    right: 15px;
+    left: 15px;
     top: 15px;
     
 }
@@ -212,6 +217,41 @@ a{
     opacity: 0;
     z-index: -1;
 }
+
+
+
+   
+.weatherBox{
+    background-color: grey;
+    width: 130px
+
+}
+
+.box{
+    display: flex;
+    justify-content:left;
+    gap: 10px;
+   
+}
+
+.weatherBox{
+    background-color: grey;
+    width: 130px;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+      
+}
+
+.weatherModal h2{
+    margin:0;
+    color: #efefef;
+    font-size: 3rem;
+    padding: 0;
+    
+}
+
+
 
 .menuOn,
 .formOn

@@ -131,10 +131,20 @@ const weatherInfo = () => {
 
     const shovWeather = async (loc) => {
 
-        const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${}&lon=${}&appid=${KEY}`;
+        const city = document.getElementById("cityName");
+        const temp = document.getElementById("mainTemp");
+        const pressureValue = document.getElementById("pressure");
+        
+        const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${loc.coords.latitude}&lon=${loc.coords.longitude}&appid=${KEY}`;
         const result = await fetch(URL); // wyłap fetcha
         const weather = await (result).json(); //i poczekaj
         console.log(weather);
+
+        const tempConvert = (temp) => Math.round(temp - 272.15);
+
+        city.textContent = `${weather.name}`;
+        temp.textContent = `${tempConvert(weather.main.temp)} C`;
+        pressureValue.textContent = `${weather.main.pressure} hPA`;
 
     }
 
