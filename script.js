@@ -134,17 +134,37 @@ const weatherInfo = () => {
         const city = document.getElementById("cityName");
         const temp = document.getElementById("mainTemp");
         const pressureValue = document.getElementById("pressure");
-        
+        const weatherMessage = document.getElementById("weatherMessage")
+
         const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${loc.coords.latitude}&lon=${loc.coords.longitude}&appid=${KEY}`;
         const result = await fetch(URL); // wyłap fetcha
         const weather = await (result).json(); //i poczekaj
         console.log(weather);
+
+
+        const currentMessage = (temp) => {
+            if(temp >= 30){
+                return "Idealnie do opalania"
+            }
+            else if(temp >=20 && temp < 30){
+                return "Piekny letni dzień"
+            }
+            else if(temp >= 10 && temp < 20){
+                return "W sam raz do biegania"
+            }
+            else {
+                return "Jest dośc chłodno"
+            }
+        }
+
+
 
         const tempConvert = (temp) => Math.round(temp - 272.15);
 
         city.textContent = `${weather.name}`;
         temp.textContent = `${tempConvert(weather.main.temp)} C`;
         pressureValue.textContent = `${weather.main.pressure} hPA`;
+        weatherMessage.textContent = currentMessage(tempConvert(weather.main.temp));
 
     }
 
@@ -186,3 +206,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // const currentTime = new Date();
 // console.log(currentTime);
+
+
+
+// for (licznik = 0, warunek = jak długo, inkrementacj = zwiększania licznika)
+
+const user = [5, 8, 9, 10, 23, 24, 56]
+
+for(let i = 0; i <= 10; i++) {
+    console.log(`To jest ${user} iteracja`);
+}
+
+//while 
+let num = null;
+while(num !== 8){
+    num = Math.floor(Math.random()*10);
+    console.log(num);
+}
