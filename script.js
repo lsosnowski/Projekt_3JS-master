@@ -1,4 +1,28 @@
 
+const initialNotes = [
+    {
+        title: "Robic zakupy",
+        content: "Zakupy na dzisiejszy obiad",
+        category: "Dom",
+    },
+
+
+    {
+        title: "Pograć w kozykówke",
+        content: "Pora odejśc od komputera",
+        category: "Praca",
+    },
+
+
+    {
+        title: "Iśc do biura podrózy",
+        content: "Kupic bilety na Dominikane",
+        category: "Podróże",
+    },
+
+]
+
+
 const menuToggler = () => {
     const menu = document.getElementById("Menu");
     const showMenuBtn = document.getElementById("ShowMenuBtn");
@@ -18,8 +42,8 @@ const menuToggler = () => {
 
     const toggle = () => menu.classList.toggle("menuOn")
 
-    showMenuBtn.addEventListener("click",toggle);
-    hideMenuBtn.addEventListener("click",toggle);
+    showMenuBtn.addEventListener("click", toggle);
+    hideMenuBtn.addEventListener("click", toggle);
 }
 
 
@@ -32,13 +56,14 @@ const noteCreator = () => {
     const notesWrapper = document.getElementById("Notes");
     const categoryField = document.getElementById("NoteCategory");
 
-    const addNote = () => {
+    const addNote = (title, content, category) => {
         // <i class="bi bi-house-fill"></i>
         // <i class="bi bi-person-workspace"></i>
         // <i class="bi bi-globe2"></i>
+        console.log(category, title, content);
 
         let iconClass = null;
-        switch(categoryField.value) {
+        switch (category) {
             case 'Podróże':
                 iconClass = "bi bi-globe2";
                 break;
@@ -49,7 +74,7 @@ const noteCreator = () => {
                 iconClass = "bi bi-house-fill";
                 break;
             default:
-                iconClass= null;
+                iconClass = null;
                 break;
         }
 
@@ -57,15 +82,15 @@ const noteCreator = () => {
 
         const note = document.createElement("div");
         note.classList.add("card");
-        note.innerHTML = 
-        `
-        <span> <i class="${iconClass}"></i> ${categoryField.value}</span>
-        <h3>${titleField.value}</h3>
-        <p>${contentField.value}</p>
+        note.innerHTML =
+            `
+        <span> <i class="${iconClass}"></i> ${category}</span>
+        <h3>${title}</h3>
+        <p>${content}</p>
 
         `
 
-        if (titleField.value.length > 2 && contentField.value.length > 5){
+        if (title.length > 2 && content.length > 5) {
             notesWrapper.appendChild(note);
         }
         else {
@@ -74,18 +99,21 @@ const noteCreator = () => {
 
         titleField.value = "";
         contentField.value = "";
-       
+
     }
 
-    addBtn.addEventListener("click", addNote);
+    addBtn.addEventListener("click", () => addNote(titleField.value, contentField.value, categoryField.value));
 
 
-} 
+    initialNotes.forEach((note) => addNote(note.title, note.content, note.category));
+
+}
 
 
 
-const formToggler = () =>
-{
+
+
+const formToggler = () => {
     const formWrapper = document.getElementById("Form");
     const showFormBtn = document.getElementById("ShowForm");
 
@@ -96,9 +124,32 @@ const formToggler = () =>
 
 
 
+
+
+
+
+
+
+
+
 //nasłuchiwanie w oknie przeglądarki
 window.addEventListener("DOMContentLoaded", () => {
     menuToggler();
     noteCreator();
     formToggler();
 })
+
+
+// //obiekt Math
+
+// console.log(Math);
+// const randomNum = Math.random()*10;
+// const roundeNum = Math.floor(randomNum);
+// console.log(Math.round(4.8));
+// console.log(Math.randomNum);
+
+
+// //oiekt Date
+
+// const currentTime = new Date();
+// console.log(currentTime);
