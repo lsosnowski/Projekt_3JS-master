@@ -187,6 +187,32 @@ a{
 }
 
 
+.weatherModal{
+    background-color: red;
+    position: fixed;
+    height: 95%;
+    width: 95%;
+    top: 2.5%;
+    left: 2.5%;
+    background-image: url(./background.jpg);
+    background-size:cover;
+    transition: 1s;
+}
+
+.closeModal{
+    position: absolute;
+    cursor: pointer;
+    right: 15px;
+    top: 15px;
+    
+}
+
+
+.hideModal{
+    opacity: 0;
+    z-index: -1;
+}
+
 .menuOn,
 .formOn
 {

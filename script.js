@@ -124,7 +124,29 @@ const formToggler = () => {
 
 
 
+const weatherInfo = () => {
+    const KEY = "e8e95d5ff4cd0eadd9759cbf6fac5e4a";
 
+    navigator.geolocation.getCurrentPosition((location) => shovWeather(location));
+
+    const shovWeather = async (loc) => {
+
+        const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${}&lon=${}&appid=${KEY}`;
+        const result = await fetch(URL); // wyłap fetcha
+        const weather = await (result).json(); //i poczekaj
+        console.log(weather);
+
+    }
+
+
+
+
+    const modalWrapper = document.getElementById("Weather");
+    const closeBtn = document.getElementById("closeModal");
+
+    const closeModal = () => modalWrapper.classList.add("hideModal");
+    closeBtn.addEventListener('click', closeModal);
+}
 
 
 
@@ -137,6 +159,7 @@ window.addEventListener("DOMContentLoaded", () => {
     menuToggler();
     noteCreator();
     formToggler();
+    weatherInfo();
 })
 
 
